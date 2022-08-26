@@ -1,3 +1,8 @@
+
+// import { myGlobe } from './globes/globe_test.js';
+// import { myGlobe } from './globes/globe_cables_test.js';
+// import { myGlobe } from './globes/globe_earthquake.js';
+
 // world data set/geojson
 fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
