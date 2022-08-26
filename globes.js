@@ -34,12 +34,14 @@ function getFillColour(feat) {
 
 //https://stackoverflow.com/questions/45018338/javascript-fetch-api-how-to-save-output-to-variable-as-an-object-not-the-prom
 
-let countries;
+var countries;
 let data;
-fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countriesJSON => countries = countriesJSON);
+fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countriesJSON => countries = countriesJSON)
+.then(() => console.log(countries))
     // air exposure data set
-    fetch('./data/air/air_exposure.json').then(res => res.json()).then(datas => data = datas);
+fetch('./data/air/air_exposure.json').then(res => res.json()).then(datas => data = datas);
 
+console.log(countries);
 
 // globe instance
 const world = Globe()
