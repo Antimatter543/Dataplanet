@@ -60,5 +60,3 @@ const myGlobe = Globe()
 		  .arcsData(filteredRoutes)
 		  .pointOfView(MAP_CENTER, 4000);
 	  });
-
-export {myGlobe};

@@ -37,4 +37,4 @@ fetch('//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson').the
 .then(equakes => myGlobe.ringsData(equakes)) // .then(equakes => console.log(equakes[0]))
 
 
-export {myGlobe};
+// export {myGlobe};
