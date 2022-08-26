@@ -3,4 +3,4 @@
 
 
 // import { myGlobe } from './globes/globe_test.js';
-import { myGlobe } from './globes/globe_cables_test.js';
+import { world } from './globes/globe_air.js';
