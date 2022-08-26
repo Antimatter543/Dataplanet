@@ -25,4 +25,4 @@ fetch('//raw.githubusercontent.com/telegeography/www.submarinecablemap.com/maste
 	.pathDashAnimateTime(12000);
 });
 
-export {myGlobe};
+// export {myGlobe};
