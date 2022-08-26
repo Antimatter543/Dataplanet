@@ -1,39 +1,62 @@
 
-// Have one thing imported at a time -- chooses which globe to pick.
-
-
 // import { myGlobe } from './globes/globe_test.js';
 // import { myGlobe } from './globes/globe_cables_test.js';
 // import { myGlobe } from './globes/globe_earthquake.js';
 
+// world data set/geojson
+fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+{
+    // air exposure data set
+    fetch('./data/air/air_exposure.json').then(res => res.json()).then(data => 
+    {
+        // air pollution exposure value
+        function getAQValue(d) {
+            let content = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
 
-// let thing = fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson").then(t => t.text);
+            data.forEach(index => {
+                if (index.CODE == d.ISO_A3)
+                    content = `<b>${d.ADMIN} (${d.ISO_A3}):<br>Exposure to PM2.5: ${index.VALUE} mg/m<sup>3</sup></b>`;
+            });
 
-// Other shit
+            return content;
+        } 
 
-// const weightColor = d3.scaleLinear()
-// .domain([0, 60])
-// .range(['lightblue', 'darkred'])
-// .clamp(true);
+        // country fill colour
+        function getFillColour(feat) {
+            let value = 0;
 
-const myGlobe = Globe()
-.globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-.ringLat(d => d.geometry.coordinates[1])
-.ringLng(d => d.geometry.coordinates[0])
-// .hexBinPointWeight(d => d.properties.mag)
-// .hexAltitude(({ sumWeight }) => sumWeight * 0.0025)
-// .hexTopColor(d => weightColor(d.sumWeight))
-// .hexSideColor(d => weightColor(d.sumWeight))
-// .hexLabel(d => `
-//   <b>${d.points.length}</b> earthquakes in the past month:<ul><li>
-//     ${d.points.slice().sort((a, b) => b.properties.mag - a.properties.mag).map(d => d.properties.title).join('</li><li>')}
-//   </li></ul>
-// `)
-(document.getElementById('globeViz'));
+            data.forEach(index => {
+                if (index.CODE == feat.properties.ISO_A3)
+                    value = index.VALUE;
+            });
 
-// Obj.features is equakes. So looping through that is all the earthquake objects individually.
+            if (value >= 60) return "#F6412D";
+            else if (value >= 45) return "#FF5607";
+            else if (value >= 30) return "#FF9800";
+            else if (value >= 15) return "#FFC100";
+            else return "#FFEC19";
+        }
 
-// Get data after making world
-fetch('//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson').then(res => res.json())
-.then(obj => obj.features)
-.then(equakes => myGlobe.ringsData(equakes)) // .then(equakes => console.log(equakes[0]))
+        // globe instance
+        const world = Globe()
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+        .lineHoverPrecision(0)
+        .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
+        .polygonAltitude(0.06)
+        .polygonCapColor(feat => getFillColour(feat))
+        .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
+        .polygonStrokeColor(() => '#111')
+        .polygonLabel(({ properties: d }) => getAQValue(d))
+        .onPolygonHover(hoverD => world
+            .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
+            .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
+        )
+        .polygonsTransitionDuration(300)
+        (document.getElementById('globeViz'));
+
+        // globe config
+        world.controls().autoRotate = true;
+        world.controls().autoRotateSpeed = 0.6;
+    });
+});
