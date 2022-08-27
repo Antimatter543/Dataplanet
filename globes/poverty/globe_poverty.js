@@ -52,7 +52,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 }
             });
 
-            if (value == 0) return "#FFFFFF"; // This means no data was found
+            if (value == 0) return "#363636"; // This means no data was found
             else if (value <= 500) return "#F6412D";
             else if (value <= 2000) return "#FF5607";
             else if (value <= 8000) return "#FF9800";

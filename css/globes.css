@@ -26,8 +26,11 @@
      border-right: none;
 }
  .btn-group button:hover {
-     background-color: #020b16;
+     background-color: #041b36;
      transition: 0.3s;
+}
+.btn-active {
+    background-color: #041b36 !important;
 }
 /* modular section */
  .modal {
