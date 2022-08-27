@@ -30,6 +30,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             data.forEach(country => {
                 console.log(d.ISO_A3, country.country_code, country.country_name)
                 if (country.country_code == d.ISO_A3 || country.country_name == d.SOVEREIGNT) {
+
                     labelContent = `<b>${country.country_name} (${d.ISO_A3}):
                     <br>
                     Reported GDP: ${country.reporting_gdp}
@@ -51,8 +52,8 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 }
             });
 
-
-            if (value <= 500) return "#F6412D";
+            if (value == 0) return "#FFFFFF"; // This means no data was found
+            else if (value <= 500) return "#F6412D";
             else if (value <= 2000) return "#FF5607";
             else if (value <= 8000) return "#FF9800";
             else if (value <= 40000) return "#FFC100";
