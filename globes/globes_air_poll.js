@@ -1,5 +1,8 @@
-// world data set/geojson
-const myGlobe = Globe();
+// myGlobe data set/geojson
+const myGlobe = Globe()(document.getElementById('globeViz'))
+.globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+.backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png');
+// Country air pollution 
 fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
     // air exposure data set
@@ -13,7 +16,6 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 if (index.CODE == d.ISO_A3)
                     content = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>${d.ADMIN} (${d.ISO_A3}):<br>Exposure to PM2.5: ${index.VALUE} mg/m<sup>3</sup></b></div>`;
             });
-
             return content;
         } 
 
@@ -35,8 +37,6 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 
         // globe instance
         myGlobe 
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-        .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')) // tl;dr fuck antarctica
         .polygonAltitude(0.06)
@@ -48,9 +48,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
             .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
         )
-        .polygonsTransitionDuration(300)
-        (document.getElementById('globeViz'));
-
+        .polygonsTransitionDuration(300);
         // globe config
         myGlobe.controls().autoRotate = true;
         myGlobe.controls().autoRotateSpeed = 0.2;
@@ -58,4 +56,41 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     });
 });
 
-// export {world};
+// Hexbin OpenAQ air pollution
+const options = {method: 'GET', headers: {Accept: 'application/json'}};
+
+const weightColor = d3.scaleLinear()
+.domain([0, 60])
+.range(['yellow', 'darkred'])
+.clamp(true);
+
+fetch('https://api.openaq.org/v2/locations?limit=200&page=1&offset=0&sort=desc&radius=100&order_by=lastUpdated&dumpRaw=false', options)
+  .then(response => response.json())
+  .then(response => {
+    // myGlobe settings
+    myGlobe.hexBinPointsData(response.results)
+    .hexBinPointLat(d => d.coordinates.latitude)
+    .hexBinPointLng(d => d.coordinates.longitude)
+    
+    // Label aesthetics
+    .hexLabel(d => d.name)
+    .hexBinPointWeight(d => d.parameters[0].average)
+    .hexAltitude(({ sumWeight }) => sumWeight * 0.0070)
+    .hexTopColor(d => weightColor(d.sumWeight))
+    .hexSideColor(d => weightColor(d.sumWeight))
+    .hexLabel(d => setHexLabel(d))
+  });
+
+// Set label for hex points.
+function setHexLabel(d) {
+    label = `The name for this is not available.`
+
+    console.log(d.points[0].parameters)
+    console.log(d)
+    params = d.points[0].parameters
+    label = `${d.points[0].name}.
+    <br>
+    Contains ${params[0].average} ${params[0].unit} of ${params[0].displayName}`
+    return label;
+}
+

@@ -11,6 +11,7 @@ const weightColor = d3.scaleLinear()
 fetch('https://api.openaq.org/v2/locations?limit=200&page=1&offset=0&sort=desc&radius=100&order_by=lastUpdated&dumpRaw=false', options)
   .then(response => response.json())
   .then(response => {
+    // World settings
     world.hexBinPointsData(response.results)
     .hexBinPointLat(d => d.coordinates.latitude)
     .hexBinPointLng(d => d.coordinates.longitude)
@@ -23,9 +24,6 @@ fetch('https://api.openaq.org/v2/locations?limit=200&page=1&offset=0&sort=desc&r
     .hexSideColor(d => weightColor(d.sumWeight))
     .hexLabel(d => setLabel(d))
   });
-
-// World settings
-world
 
 // Set label for hex points.
 function setLabel(d) {
