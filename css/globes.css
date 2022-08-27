@@ -9,15 +9,20 @@ body {
 }
 
 /* header buttons */
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn-group button {
   background-color: #010f21;
   border: none;
   color: white;
-  padding: 18px 24px;
+  padding: 20px 24px;
   cursor: pointer;
   float: left;
   font-size: 20px;
-  font-family: 'Roboto Mono', monospace;
 }
 
 .btn-group:after {
@@ -32,7 +37,6 @@ body {
 
 .btn-group button:hover {
   background-color: #020b16;
-  transition: 0.3s;
 }
 
 /* modular section */
