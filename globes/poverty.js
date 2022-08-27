@@ -21,14 +21,13 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 
         // Setting labels -- this is where we do poverty labelling.
         function setLabel(d) {
-            labelContent = `<b>${d.ADMIN} (${d.ISO_A3}):</b> <br />
-            GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-            Population: <i>${d.POP_EST}</i>
-            `
+            let labelContent = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
+
             // Add data (poverty)
             //// Let's add to labels:
             // poverty_line  country_code (ISO-A3), country_name, reporting_gdp, gini (lower is better)
             data.forEach(country => {
+                // console.log(d.ISO_A3, country.country_code, country.country_name)
                 if (country.country_code == d.ISO_A3) {
                     labelContent = `<b>${country.country_name} (${d.ISO_A3}):
                     <br>
@@ -55,7 +54,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             else if (value >= 0.4) return "#FF5607";
             else if (value >= 0.3) return "#FF9800";
             else if (value >= 0.2) return "#FFC100";
-            else return "#FFEC19";
+            else return "#FFFFFF";
         }
 
         // Globe settings
@@ -89,6 +88,6 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 
     // live api stuff
 
-fetch('https://api.worldbank.org/pip/v1/pip?country=all&year=2018&povline=1.9&fill_gaps=false')
-.then(res => res.json())
-.then(t => console.log(t)) // think we just throw t into the fkin polgygonlayer.
+// fetch('https://api.worldbank.org/pip/v1/pip?country=all&year=2018&povline=1.9&fill_gaps=false')
+// .then(res => res.json())
+// .then(t => console.log(t)) // think we just throw t into the fkin polgygonlayer.
