@@ -7,11 +7,11 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     {
         // air pollution exposure value
         function getAQValue(d) {
-            let content = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
+            let content = `<b>Data for ${d.ADMIN} (${d.ISO_A3}) is not available.</b>`;
 
             data.forEach(index => {
                 if (index.CODE == d.ISO_A3)
-                    content = `<b>${d.ADMIN} (${d.ISO_A3}):<br>Exposure to PM2.5: ${index.VALUE} mg/m<sup>3</sup></b>`;
+                    content = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>${d.ADMIN} (${d.ISO_A3}):<br>Exposure to PM2.5: ${index.VALUE} mg/m<sup>3</sup></b></div>`;
             });
 
             return content;
