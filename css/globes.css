@@ -9,6 +9,12 @@ body {
 }
 
 /* header buttons */
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn-group button {
   background-color: #010f21;
   border: none;
