@@ -1,4 +1,4 @@
-// year selector
+// year 
 var year = 2021;
 
 // world data set/geojson
@@ -77,13 +77,15 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 }
 loadGlobe();
 
-function deactivateAll() {
+//to highlight selected year
+function deactivateAll() { 
     let yearBtns = document.querySelectorAll(".time-btns button");
     for(let [i, btn] of yearBtns.entries()) {
         btn.classList.remove("active")
     }
 }
 
+//wait for year to be selected
 document.querySelector("#year-2021").addEventListener("click", function(event) {
     year = 2021;
     loadGlobe();
