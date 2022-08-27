@@ -25,11 +25,9 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
             Population: <i>${d.POP_EST}</i>
             `
-
-            // Add data (poverty) specific stuff
+            // Add data (poverty)
             //// Let's add to labels:
-            // poverty_line 
-            // country_code (ISO-A3), country_name, reporting_gdp, gini (lower is better)
+            // poverty_line  country_code (ISO-A3), country_name, reporting_gdp, gini (lower is better)
             data.forEach(country => {
                 if (country.country_code == d.ISO_A3) {
                     labelContent = `<b>${country.country_name} (${d.ISO_A3}):
@@ -37,12 +35,27 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                     GINI (lower is better): ${country.gini}
                     <br>
                     Reported GDP: ${country.reporting_gdp}
-                    `
-                    // Exposure to PM2.5: ${index.VALUE} mg/m<sup>3</sup></b>`;
-
+                    `;
                 }
             })
             return labelContent;
+        }
+
+        // country fill colour
+        function getFillColour(feat) {
+            let value = 0;
+
+            data.forEach(country => {
+                if (country.country_code == feat.properties.ISO_A3) {
+                    value = country.gini;
+                }
+            });
+
+            if (value >= 0.5) return "#F6412D";
+            else if (value >= 0.4) return "#FF5607";
+            else if (value >= 0.3) return "#FF9800";
+            else if (value >= 0.2) return "#FFC100";
+            else return "#FFEC19";
         }
 
         // Globe settings
@@ -54,7 +67,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 
         // Polygon looks
         .polygonAltitude(0.06)
-        .polygonCapColor(feat => colorScale(getVal(feat)))
+        .polygonCapColor(feat => getFillColour(feat))
         .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
         .polygonStrokeColor(() => '#111')
         .polygonLabel(({ properties: d }) => setLabel(d))
@@ -62,7 +75,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
         // Hover stuff
         .onPolygonHover(hoverD => world
         .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-        .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
+        .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
         )
     //     .polygonsTransitionDuration(300)
     //             .onPolygonHover(hoverD => world
