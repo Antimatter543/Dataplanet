@@ -101,9 +101,9 @@ function setHexLabel(d) {
     params = d.points[0].parameters
     label = `
     <div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'>
-    ${d.points[0].name}.
+    <b>${d.points[0].name}.
     <br>
-    Contains ${params[0].average} ${params[0].unit} of ${params[0].displayName}`
+    Contains ${params[0].average} ${params[0].unit} of ${params[0].displayName}</b>`
     return label;
 }
 

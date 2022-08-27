@@ -22,7 +22,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
         // Setting labels -- this is where we do poverty labelling.
         // d is the local countries data
         function setLabel(d) {
-            let labelContent = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
+            let labelContent = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>Data for ${d.ADMIN} (${d.ISO_A3}) is not available.</b>`;
 
             // Add data (poverty)
             //// Let's add to labels:
@@ -31,11 +31,11 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 // console.log(d.ISO_A3, country.country_code, country.country_name)
                 if (country.country_code == d.ISO_A3 || country.country_name == d.SOVEREIGNT) {
 
-                    labelContent = `<b>${country.country_name} (${d.ISO_A3}):
+                    labelContent = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>${country.country_name} (${d.ISO_A3}):
                     <br>
                     Reported GDP: ${country.reporting_gdp}
                     <br>
-                    GINI (lower is better): ${country.gini}
+                    GINI (prefered low as possible): ${country.gini}
                     `;
                 }
             })

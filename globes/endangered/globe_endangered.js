@@ -17,11 +17,11 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     {
         //number of endangered species in 2021
         function getThreatValue(d) {
-            let content = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
+            let content = `<b>Data for ${d.ADMIN} (${d.ISO_A3}) is not available.</b>`;
 
             data.forEach(index => {
                 if (index.Country == d.ADMIN && index.Year == 2021)
-                    content = `<b>${d.ADMIN} (${d.ISO_A3}):<br>Number of endangered species: ${index.Value}</b>`;
+                    content = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>${d.ADMIN} (${d.ISO_A3}):<br>Number of endangered species: ${index.Value}</b>`;
             });
             return content
         }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Data World | Air Pollution</title>
+        <title>Data World | Earthquake</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/globes.css">
         <script src="//unpkg.com/d3-dsv"></script>
@@ -12,29 +12,28 @@
     <body>
         <!-- header/navbar/globe buttons -->
         <div class="btn-group" style="width:100%">
-          <a href="../index.html">
-          <button style="width:20%">HOME</button>
-          </a>
-          <a href="air_poll.html">
-          <button style="width:20%">POLLUTION</button>
-          </a>
-          <a href="earthquake.html">
-          <button style="width:20%">EARTHQUAKES</button>
-          </a>
-          <a href="poverty.html">
-          <button style="width:20%">POVERTY</button>
-          </a>
-          <a href="endangered.html">
-          <button style="width:20%">SPECIES</button>
-          </a>
-      </div>
-
+            <a href="/index.html">
+            <button style="width:20%">HOME</button>
+            </a>
+            <a href="/globes/pollution/pollution.html">
+            <button style="width:20%">POLLUTION</button>
+            </a>
+            <a href="/globes/earthquake/earthquake.html">
+            <button style="width:20%">EARTHQUAKES</button>
+            </a>
+            <a href="/globes/poverty/poverty.html">
+            <button style="width:20%">POVERTY</button>
+            </a>
+            <a href="/globes/endangered/endangered.html">
+            <button style="width:20%">SPECIES</button>
+            </a>
+        </div>
         <!-- information modular window -->
         <div id="information-modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>AIR POLLUTION | INFORMATION</h2>
+                    <h2>EARTHQUAKE | INFORMATION</h2>
                 </div>
                 <div class="modal-body">
                     <p>Some text in the Modal Body</p>
@@ -47,7 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>AIR POLLUTION | HOW YOU CAN HELP</h2>
+                    <h2>EARTHQUAKE | HOW YOU CAN HELP</h2>
                 </div>
                 <div class="modal-body">
                     <p>Some text in the Modal Body</p>
@@ -59,12 +58,12 @@
         <div id="globeViz"></div>
         <!-- bottom button navbar -->
         <section id="bottom">
-          <div class="btn-group" style="width:100%">
-              <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
-              <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
-          </div>
+            <div class="btn-group" style="width:100%">
+                <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
+                <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
+            </div>
         </section>
-        <script src="/globes/globe_earthquake.js"></script>
+        <script src="/globes/earthquake/globe_earthquake.js"></script>
         <script src="/js/modals.js"></script>
     </body>
 </html>
