@@ -28,7 +28,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             //// Let's add to labels:
             // poverty_line  country_code (ISO-A3), country_name, reporting_gdp, gini (lower is better)
             data.forEach(country => {
-                console.log(d.ISO_A3, country.country_code, country.country_name)
+                // console.log(d.ISO_A3, country.country_code, country.country_name)
                 if (country.country_code == d.ISO_A3 || country.country_name == d.SOVEREIGNT) {
 
                     labelContent = `<b>${country.country_name} (${d.ISO_A3}):
