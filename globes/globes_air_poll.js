@@ -64,23 +64,32 @@ const weightColor = d3.scaleLinear()
 .range(['yellow', 'darkred'])
 .clamp(true);
 
-fetch('https://api.openaq.org/v2/locations?limit=200&page=1&offset=0&sort=desc&radius=100&order_by=lastUpdated&dumpRaw=false', options)
+fetch('https://api.openaq.org/v2/locations?limit=500&page=1&offset=0&sort=desc&radius=500&order_by=firstUpdated&dumpRaw=false', options)
   .then(response => response.json())
   .then(response => {
     // myGlobe settings
-    myGlobe.hexBinPointsData(response.results)
+    // console.log(response.results.filter(d => d.coordinates !== null))
+    myGlobe.hexBinPointsData(response.results.filter(d => d.coordinates !== null))  // don't put any null coordinates in the globe
     .hexBinPointLat(d => d.coordinates.latitude)
     .hexBinPointLng(d => d.coordinates.longitude)
     
     // Label aesthetics
     .hexLabel(d => d.name)
     .hexBinPointWeight(d => d.parameters[0].average)
-    .hexAltitude(({ sumWeight }) => sumWeight * 0.0070)
+    .hexAltitude(({sumWeight}) => setWeight(sumWeight))
     .hexTopColor(d => weightColor(d.sumWeight))
     .hexSideColor(d => weightColor(d.sumWeight))
     .hexLabel(d => setHexLabel(d))
+    .hexBinResolution(3.5)
   });
 
+function setWeight(d) {
+    weight = d * 0.0070;
+    // console.log(d, weight)
+    maxWeight = 30*0.007
+    if (weight >maxWeight) {return maxWeight};
+    return weight;
+}
 // Set label for hex points.
 function setHexLabel(d) {
     label = `The name for this is not available.`
@@ -88,7 +97,9 @@ function setHexLabel(d) {
     console.log(d.points[0].parameters)
     console.log(d)
     params = d.points[0].parameters
-    label = `${d.points[0].name}.
+    label = `
+    <div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'>
+    ${d.points[0].name}.
     <br>
     Contains ${params[0].average} ${params[0].unit} of ${params[0].displayName}`
     return label;
