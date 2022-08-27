@@ -52,8 +52,8 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
         (document.getElementById('globeViz'));
 
         // globe config
-        // myGlobe.controls().autoRotate = true;
-        // myGlobe.controls().autoRotateSpeed = 0.3;
+        myGlobe.controls().autoRotate = true;
+        myGlobe.controls().autoRotateSpeed = 0.2;
         myGlobe.controls().enableZoom = false;
     });
 });
