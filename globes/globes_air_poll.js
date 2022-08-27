@@ -83,6 +83,8 @@ fetch('https://api.openaq.org/v2/locations?limit=500&page=1&offset=0&sort=desc&r
     .hexBinResolution(3.5)
   });
 
+
+// Sets max weight so hexagons can't just go BOOOOM.
 function setWeight(d) {
     weight = d * 0.0070;
     // console.log(d, weight)
