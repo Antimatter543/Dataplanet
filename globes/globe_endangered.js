@@ -1,5 +1,10 @@
+// year selector
+var year = 2021;
+
 // world data set/geojson
 const myGlobe = Globe();
+
+function loadGlobe() {
 fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
     //helper func to convert to correct datatype
@@ -20,7 +25,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             let content = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
 
             data.forEach(index => {
-                if (index.Country == d.ADMIN && index.Year == 2021)
+                if (index.Country == d.ADMIN && index.Year == year)
                     content = `<b>${d.ADMIN} (${d.ISO_A3}):<br>Number of endangered species: ${index.Value}</b>`;
             });
             return content
@@ -34,6 +39,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 if (index.Country == feat.properties.ADMIN)
                     value = index.Value;
             });
+
 
             if (value >= 1500) return "#F6412D";
             else if (value >= 1000) return "#FF5607";
@@ -68,5 +74,57 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
         myGlobe.controls().enableZoom = false;
     });
 });
+}
+loadGlobe();
+
+function deactivateAll() {
+    let yearBtns = document.querySelectorAll(".time-btns button");
+    for(let [i, btn] of yearBtns.entries()) {
+        btn.classList.remove("active")
+    }
+}
+
+document.querySelector("#year-2021").addEventListener("click", function(event) {
+    year = 2021;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2020").addEventListener("click", function(event) {
+    year = 2020;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2019").addEventListener("click", function(event) {
+    year = 2019;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2018").addEventListener("click", function(event) {
+    year = 2018;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2015").addEventListener("click", function(event) {
+    year = 2015;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2010").addEventListener("click", function(event) {
+    year = 2010;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
+document.querySelector("#year-2004").addEventListener("click", function(event) {
+    year = 2004;
+    loadGlobe();
+    deactivateAll();
+    this.classList.add("active");
+})
 
 // export {world};
