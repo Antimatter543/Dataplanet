@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Data World | Endangered Species</title>
+        <title>Data World | Air Pollution</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/endangered.css">
         <link rel="stylesheet" href="/css/globes.css">
         <script src="//unpkg.com/d3-dsv"></script>
         <script src="//unpkg.com/d3"></script>
@@ -12,21 +11,18 @@
     </head>
     <body>
         <!-- header/navbar/globe buttons -->
-        <div class="btn-group">
+        <div class="btn-group" style="width:100%">
             <a href="../index.html">
-            <button>HOME</button>
+            <button style="width:25%">HOME</button>
             </a>
             <a href="air_poll.html">
-            <button>AIR POLLUTION</button>
+            <button style="width:25%">AIR POLLUTION</button>
             </a>
-            <a href="">
-            <button>EARTHQUAKES</button>
+            <a href="earthquake.html">
+            <button style="width:25%">EARTHQUAKES</button>
             </a>
             <a href="poverty.html">
-            <button>POVERTY</button>
-            </a>
-            <a href="endangered.html">
-            <button>ENDANGERED SPECIES</button>
+            <button style="width:25%">POVERTY</button>
             </a>
         </div>
         <!-- information modular window -->
@@ -34,7 +30,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>ENDANGERED SPECIES | INFORMATION</h2>
+                    <h2>AIR POLLUTION | INFORMATION</h2>
                 </div>
                 <div class="modal-body">
                     <p>Some text in the Modal Body</p>
@@ -47,7 +43,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>ENDANGERED SPECIES | HOW YOU CAN HELP</h2>
+                    <h2>AIR POLLUTION | HOW YOU CAN HELP</h2>
                 </div>
                 <div class="modal-body">
                     <p>Some text in the Modal Body</p>
@@ -55,20 +51,6 @@
                 </div>
             </div>
         </div>
-        <!--time series buttons -->
-        <div class="time-labels">
-            
-        </div>
-        <div class="time-btns">
-            <button id="year-2004"></button>
-            <button id="year-2010"></button>
-            <button id="year-2015"></button>
-            <button id="year-2018"></button>
-            <button id="year-2019"></button>
-            <button id="year-2020"></button>
-            <button id="year-2021"></button>
-        </div>
-        <div id="timeline"></div>
         <!-- globe -->
         <div id="globeViz"></div>
         <!-- bottom button navbar -->
@@ -76,7 +58,7 @@
             <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
             <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
         </div>
-        <script src="/globes/globe_endangered.js"></script>
+        <script src="/globes/poverty.js"></script>
         <script src="/js/modals.js"></script>
     </body>
 </html>
