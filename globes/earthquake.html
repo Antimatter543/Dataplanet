@@ -10,21 +10,24 @@
         <script src="//unpkg.com/globe.gl"></script> 
     </head>
     <body>
-        <!-- header/navbar/globe buttons -->
+      <section id="top">
         <div class="btn-group" style="width:100%">
-            <a href="../index.html">
+          <a href="../index.html">
             <button style="width:25%">HOME</button>
-            </a>
-            <a href="air_poll.html">
+          </a>
+          <a href="air_poll.html">
             <button style="width:25%">AIR POLLUTION</button>
-            </a>
-            <a href="">
+          </a>
+          <a href="earthquake.html">
             <button style="width:25%">EARTHQUAKES</button>
-            </a>
-            <a href="">
+          </a>
+          <a href="">
             <button style="width:25%">POVERTY</button>
-            </a>
+          </a>
         </div>
+      </section>
+        <!-- header/navbar/globe buttons -->
+
         <!-- information modular window -->
         <div id="information-modal" class="modal">
             <div class="modal-content">
@@ -54,10 +57,12 @@
         <!-- globe -->
         <div id="globeViz"></div>
         <!-- bottom button navbar -->
-        <div class="btn-group" style="width:100%">
-            <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
-            <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
-        </div>
+        <section id="bottom">
+          <div class="btn-group" style="width:100%">
+              <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
+              <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
+          </div>
+        </section>
         <script src="/globes/globe_earthquake.js"></script>
         <script src="/js/modals.js"></script>
     </body>

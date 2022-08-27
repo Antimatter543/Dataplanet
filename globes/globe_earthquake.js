@@ -3,7 +3,7 @@ const URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month
 fetch(URL).then(res => res.json()).then(equakes => {
     // init spacing scale
     let x = 0.0000;
-    
+
     // label fill colour
     function getLabelColour(d) {
         if (d.properties.mag >= 9) return "rgba(190, 15, 35, 0.75)";
