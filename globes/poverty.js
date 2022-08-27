@@ -20,6 +20,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     {
 
         // Setting labels -- this is where we do poverty labelling.
+        // d is the local countries data
         function setLabel(d) {
             let labelContent = `<b>DATA FOR ${d.ADMIN} (${d.ISO_A3}) IS NOT AVAILABLE.</b>`;
 
@@ -27,13 +28,13 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             //// Let's add to labels:
             // poverty_line  country_code (ISO-A3), country_name, reporting_gdp, gini (lower is better)
             data.forEach(country => {
-                // console.log(d.ISO_A3, country.country_code, country.country_name)
+                console.log(d.ISO_A3, country.country_code, country.country_name)
                 if (country.country_code == d.ISO_A3) {
                     labelContent = `<b>${country.country_name} (${d.ISO_A3}):
                     <br>
-                    GINI (lower is better): ${country.gini}
-                    <br>
                     Reported GDP: ${country.reporting_gdp}
+                    <br>
+                    GINI (lower is better): ${country.gini}
                     `;
                 }
             })
@@ -46,14 +47,15 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
 
             data.forEach(country => {
                 if (country.country_code == feat.properties.ISO_A3) {
-                    value = country.gini;
+                    value = country.reporting_gdp;
                 }
             });
 
-            if (value >= 0.5) return "#F6412D";
-            else if (value >= 0.4) return "#FF5607";
-            else if (value >= 0.3) return "#FF9800";
-            else if (value >= 0.2) return "#FFC100";
+            if (value <= 500) return "#F6412D";
+            else if (value <= 2000) return "#FF5607";
+            else if (value <= 8000) return "#FF9800";
+            else if (value <= 40000) return "#FFC100";
+            else if (value <= 100000) return "#00FF00"
             else return "#FFFFFF";
         }
 
