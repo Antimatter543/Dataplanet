@@ -1,19 +1,70 @@
 <!-- RUN THIS ON LIVE SERVER FOR IT TO LOAD. -->
-
 <head>
-	<style> body { margin: 0; } </style>
-  
-	<script src="//unpkg.com/d3-dsv"></script>
-  <script src="//unpkg.com/d3"></script>
-	<script src="//unpkg.com/index-array-by"></script>
-  
-	<script src="//unpkg.com/globe.gl"></script> <!-- Scripts/globe class comes from these. -->
-	<!--<script src="../../dist/globe.gl.js"></script>-->
-  </head>
-  
-  <body>
-  <div id="globeViz"></div>
-  <script src="/globes/globes_air_poll.js"> </script>
-  <!-- <p> "hi!!" </p> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-  </body>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #010f21;
+    }
+
+    /* header buttons */
+    .btn-group button {
+      background-color: #010f21;
+      border: 1px solid #000;
+      color: white;
+      padding: 15px 24px;
+      cursor: pointer;
+      float: left;
+      font-size: 20px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .btn-group:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .btn-group button:not(:last-child) {
+      border-right: none;
+    }
+
+    .btn-group button:hover {
+      background-color: #020b16;
+    }
+
+    /* info section */
+  </style>
+
+  <script src="//unpkg.com/d3-dsv"></script>
+  <script src="//unpkg.com/d3"></script>
+  <script src="//unpkg.com/index-array-by"></script>
+  <script src="//unpkg.com/globe.gl"></script> 
+</head>
+
+<body>
+  <div class="btn-group" style="width:100%">
+    <a href="../index.html">
+      <button style="width:25%">HOME</button>
+    </a>
+    <a href="">
+      <button style="width:25%">AIR POLLUTION</button>
+    </a>
+    <a href="">
+      <button style="width:25%">EARTHQUAKES</button>
+    </a>
+    <a href="">
+      <button style="width:25%">POVERTY</button>
+    </a>
+  </div>
+
+  <div id="globeViz"></div>
+
+  <h1>HELLOW WORLD</h1>
+  <h1>HELLOW WORLD</h1>
+
+  <script src="/globes/globes_air_poll.js"> </script>
+</body>
