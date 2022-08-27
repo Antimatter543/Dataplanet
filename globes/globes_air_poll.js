@@ -1,9 +1,9 @@
 // world data set/geojson
-const world = Globe();
-fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+const myGlobe = Globe();
+fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
     // air exposure data set
-    fetch('./data/air/air_exposure.json').then(res => res.json()).then(data => 
+    fetch('/data/air/air_exposure.json').then(res => res.json()).then(data => 
     {
         // air pollution exposure value
         function getAQValue(d) {
@@ -34,7 +34,7 @@ fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).
         }
 
         // globe instance
-        world
+        myGlobe
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
         .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
         .lineHoverPrecision(0)
@@ -44,7 +44,7 @@ fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).
         .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
         .polygonStrokeColor(() => '#111')
         .polygonLabel(({ properties: d }) => getAQValue(d))
-        .onPolygonHover(hoverD => world
+        .onPolygonHover(hoverD => myGlobe
             .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
             .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
         )
@@ -52,9 +52,10 @@ fetch('./data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).
         (document.getElementById('globeViz'));
 
         // globe config
-        world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.6;
+        myGlobe.controls().autoRotate = true;
+        myGlobe.controls().autoRotateSpeed = 0.2;
+        myGlobe.controls().enableZoom = false;
     });
 });
 
-export {world};
+// export {world};
