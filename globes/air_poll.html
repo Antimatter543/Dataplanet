@@ -1,19 +1,64 @@
-<!-- RUN THIS ON LIVE SERVER FOR IT TO LOAD. -->
-
-<head>
-	<style> body { margin: 0; } </style>
-  
-	<script src="//unpkg.com/d3-dsv"></script>
-  <script src="//unpkg.com/d3"></script>
-	<script src="//unpkg.com/index-array-by"></script>
-  
-	<script src="//unpkg.com/globe.gl"></script> <!-- Scripts/globe class comes from these. -->
-	<!--<script src="../../dist/globe.gl.js"></script>-->
-  </head>
-  
-  <body>
-  <div id="globeViz"></div>
-  <script src="/globes/globes_air_poll.js"> </script>
-  <!-- <p> "hi!!" </p> -->
-
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Data World | Air Pollution</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/globes.css">
+        <script src="//unpkg.com/d3-dsv"></script>
+        <script src="//unpkg.com/d3"></script>
+        <script src="//unpkg.com/index-array-by"></script>
+        <script src="//unpkg.com/globe.gl"></script> 
+    </head>
+    <body>
+        <!-- header/navbar/globe buttons -->
+        <div class="btn-group" style="width:100%">
+            <a href="../index.html">
+            <button style="width:25%">HOME</button>
+            </a>
+            <a href="air_poll.html">
+            <button style="width:25%">AIR POLLUTION</button>
+            </a>
+            <a href="">
+            <button style="width:25%">EARTHQUAKES</button>
+            </a>
+            <a href="">
+            <button style="width:25%">POVERTY</button>
+            </a>
+        </div>
+        <!-- information modular window -->
+        <div id="information-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>AIR POLLUTION | INFORMATION</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+        </div>
+        <!-- how you can help modular window -->
+        <div id="help-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>AIR POLLUTION | HOW YOU CAN HELP</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+        </div>
+        <!-- globe -->
+        <div id="globeViz"></div>
+        <!-- bottom button navbar -->
+        <div class="btn-group" style="width:100%">
+            <button style="width:50%" id="find-out-more">FIND OUT MORE</button>
+            <button style="width:50%" id="how-you-can-help">HOW CAN YOU HELP</button>
+        </div>
+        <script src="/globes/globes_air_poll.js"></script>
+        <script src="/js/modals.js"></script>
+    </body>
+</html>
