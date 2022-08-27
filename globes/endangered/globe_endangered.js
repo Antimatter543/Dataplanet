@@ -35,13 +35,13 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                     value = index.Value;
             });
 
-            if (value >= 1500) return "#F6412D";
-            else if (value >= 1000) return "#FF5607";
-            else if (value >= 500) return "#FF9800";
-            else if (value >= 200) return "#FF7f07";
-            else if (value >= 100) return "#FFad00";
-            else if (value >= 50) return "#FFC100";
-            else return "#FFEC19";
+            if (value >= 1500) return "#2b463b";
+            else if (value >= 1000) return "#345447";
+            else if (value >= 500) return "#447358";
+            else if (value >= 200) return "#838B50";
+            else if (value >= 100) return "#A3B86A";
+            else if (value >= 50) return "#abef7f";
+            else return "#90EE90";
         }
 
         // globe instance
