@@ -2,7 +2,6 @@
 const myGlobe = Globe();
 fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
-
     //helper func to convert to correct datatype
     function type(d) {
         return {
@@ -24,7 +23,6 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                 if (index.Country == d.ADMIN && index.Year == 2021)
                     content = `<b>${d.ADMIN} (${d.ISO_A3}):<br>Number of endangered species: ${index.Value}</b>`;
             });
-
             return content
         }
 
@@ -37,10 +35,12 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                     value = index.Value;
             });
 
-            if (value >= 1000) return "#F6412D";
-            else if (value >= 500) return "#FF5607";
-            else if (value >= 250) return "#FF9800";
-            else if (value >= 100) return "#FFC100";
+            if (value >= 1500) return "#F6412D";
+            else if (value >= 1000) return "#FF5607";
+            else if (value >= 500) return "#FF9800";
+            else if (value >= 200) return "#FF7f07";
+            else if (value >= 100) return "#FFad00";
+            else if (value >= 50) return "#FFC100";
             else return "#FFEC19";
         }
 
