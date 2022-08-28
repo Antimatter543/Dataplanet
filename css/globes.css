@@ -108,7 +108,6 @@
 
 .legend-content {
     position: absolute;
-    top: 100px;
     margin-left: 6em;
     background-color: rgba(255, 255, 255, 0.3);
     width: 10%;
@@ -151,6 +150,10 @@
     height: 15px;
 }
 
+#poll-content {
+    top: 100px;
+}
+
 #poll-legend div #box-1 {
     background-color:#F6412D;
 }
@@ -165,6 +168,46 @@
 }
 #poll-legend div #box-5 {
     background-color:#FFEC19;
+}
+
+#quake-content {
+    top: 20px;
+}
+
+#quake-legend div #box-1 {
+    background-color: rgb(190, 15, 35);
+}
+
+#quake-legend div #box-2 {
+    background-color: rgb(248, 4, 4);
+}
+
+#quake-legend div #box-3 {
+    background-color: rgb(232, 103, 0);
+}
+
+#quake-legend div #box-4 {
+    background-color: rgb(250, 140, 59);
+}
+
+#quake-legend div #box-5 {
+    background-color: rgb(253, 193, 0);
+}
+
+#quake-legend div #box-6 {
+    background-color: rgb(255, 253, 6);
+}
+
+#quake-legend div #box-7 {
+    background-color: rgb(215, 245, 142);
+}
+
+#quake-legend div #box-8 {
+    background-color: rgb(150, 207, 86);
+}
+
+#quake-legend div #box-9 {
+    background-color: rgb(8, 170, 86);
 }
 
 .legend-body > div > p {
