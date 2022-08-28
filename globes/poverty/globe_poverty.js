@@ -18,11 +18,17 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     fetch('https://api.worldbank.org/pip/v1/pip?country=all&year=2018&povline=1.9&fill_gaps=false')
     .then(res => res.json()).then(data => 
     {
-
         // Setting labels -- this is where we do poverty labelling.
         // d is the local countries data
         function setLabel(d) {
-            let labelContent = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>Data for ${d.ADMIN} (${d.ISO_A3}) is not available.</b>`;
+            let code = d.ISO_A3;
+
+            if (code < 0)
+                code = "";
+            else
+                code = `(${d.ISO_A3})`;
+
+            let labelContent = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>Data for ${d.ADMIN} ${code} is not available.</b>`;
 
             // Add data (poverty)
             //// Let's add to labels:
@@ -81,13 +87,14 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
         .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
         .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
         )
-    //     .polygonsTransitionDuration(300)
-    //             .onPolygonHover(hoverD => world
-    //     .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-    //     .polygonCapColor(d => d === hoverD ? 'steelblue' : getFillColour(d))
-    // )
-    // .polygonsTransitionDuration(300)
+
+            // globe config
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.2;
+    world.controls().enableZoom = false;
     });
+
+
 });
 
 
