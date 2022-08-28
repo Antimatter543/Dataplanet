@@ -18,7 +18,6 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     fetch('https://api.worldbank.org/pip/v1/pip?country=all&year=2018&povline=1.9&fill_gaps=false')
     .then(res => res.json()).then(data => 
     {
-
         // Setting labels -- this is where we do poverty labelling.
         // d is the local countries data
         function setLabel(d) {
