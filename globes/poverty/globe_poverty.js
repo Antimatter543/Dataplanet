@@ -56,7 +56,8 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
             else if (value <= 500) return "#F6412D";
             else if (value <= 2000) return "#FF5607";
             else if (value <= 8000) return "#FF9800";
-            else if (value <= 40000) return "#FFC100";
+            else if (value <= 15000) return "#FFC100";
+            else if (value <= 40000) return '#39e75f';
             else if (value <= 100000) return "#00FF00"
             else return "#FFFFFF";
         }
