@@ -151,19 +151,19 @@
     height: 15px;
 }
 
-#box-1 {
+#poll-legend div #box-1 {
     background-color:#F6412D;
 }
-#box-2 {
+#poll-legend div #box-2 {
     background-color:#FF5607;
 }
-#box-3 {
+#poll-legend div #box-3 {
     background-color:#FF9800;
 }
-#box-4 {
+#poll-legend div #box-4 {
     background-color:#FFC100;
 }
-#box-5 {
+#poll-legend div #box-5 {
     background-color:#FFEC19;
 }
 
