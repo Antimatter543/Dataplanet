@@ -1,6 +1,6 @@
 // world data set/geojson
 const myGlobe = Globe();
-fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+fetch('../../data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
     //helper func to convert to correct datatype
     function type(d) {
@@ -12,7 +12,7 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     }
 
     // threatened species data set
-    d3.csv('/data/endangered/endangered.csv', type)
+    d3.csv('../../data/endangered/endangered.csv', type)
     .then(data =>
     {
         //number of endangered species in 2021
