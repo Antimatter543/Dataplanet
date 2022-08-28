@@ -10,7 +10,14 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
     {
         // air pollution exposure value
         function getAQValue(d) {
-            let content = `<b>Data for ${d.ADMIN} (${d.ISO_A3}) is not available.</b>`;
+            let code = d.ISO_A3;
+
+            if (code < 0)
+                code = "";
+            else
+                code = `(${d.ISO_A3})`;
+
+            let content = `<div style='background: #343434; border: 1px solid #808080; padding: 0.5rem; border-radius: 0.5rem;'><b>Data for ${d.ADMIN} ${code} is not available.</b>`;
 
             data.forEach(index => {
                 if (index.CODE == d.ISO_A3)
@@ -28,7 +35,8 @@ fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).t
                     value = index.VALUE;
             });
 
-            if (value >= 60) return "#F6412D";
+            if (value == 0 || value == null) return "#363636";
+            else if (value >= 60) return "#F6412D";
             else if (value >= 45) return "#FF5607";
             else if (value >= 30) return "#FF9800";
             else if (value >= 15) return "#FFC100";
