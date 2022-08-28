@@ -37,7 +37,7 @@
      display: none;
      position: fixed;
      z-index: 1;
-     padding-top: 200px;
+     padding-top: 2rem;
      left: 0;
      top: 0;
      width: 100%;
@@ -235,6 +235,32 @@
 
 .legend-body > div > p {
     margin-left: 10px;
+}
+
+#end-content {
+    top: 50px;
+}
+
+#end-legend div #box-1 {
+    background-color: #2b463b;
+}
+#end-legend div #box-2 {
+    background-color: #345447;
+}
+#end-legend div #box-3 {
+    background-color: #447358;
+}
+#end-legend div #box-4 {
+    background-color: #838B50;
+}
+#end-legend div #box-5 {
+    background-color: #A3B86A;
+}
+#end-legend div #box-6 {
+    background-color: #abef7f;
+}
+#end-legend div #box-7 {
+    background-color: #90EE90;
 }
 
 #globeViz {
