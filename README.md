@@ -5,7 +5,9 @@ A 3D data visualisation project that displays non-live datasets and live APIs on
 - Combatting endangerment of native wildlife
 
 ![Earth_poverty](images/readme_show.png)
-Created during the UQCS Hackathon 2022.
+Created during the UQCS Hackathon 2022, and won "Best Community" award from the hackathon.
+
+Teammates: @Antimatter543, @IsaacPikunic, @shirei220 and @SonjaMcNeilly. 
 
 ## Instructions
 1. Clone the repository
