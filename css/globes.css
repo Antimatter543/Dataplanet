@@ -37,7 +37,7 @@
      display: none;
      position: fixed;
      z-index: 1;
-     padding-top: 100px;
+     padding-top: 200px;
      left: 0;
      top: 0;
      width: 100%;
@@ -98,4 +98,79 @@
  .modal-body {
      padding: 2px 16px;
      border: none;
+}
+/* legend section */
+#legend {
+    position: relative;
+    height: 0px;
+    width: 100%;
+}
+
+.legend-content {
+    position: absolute;
+    top: 100px;
+    margin-left: 6em;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 10%;
+    min-width: 150px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color: white;
+}
+
+.legend-header {
+    padding: 2px 16px;
+    background-color: rgba(1, 15, 33, 0.9);
+}
+
+.legend-header h2 {
+    font-size: 1.1em;
+}
+ 
+.legend-body {
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.legend-body p {
+    font-size: 0.9em;
+}
+
+.legend-body > div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.colour-box {
+    width: 15px;
+    height: 15px;
+}
+
+#box-1 {
+    background-color:#F6412D;
+}
+#box-2 {
+    background-color:#FF5607;
+}
+#box-3 {
+    background-color:#FF9800;
+}
+#box-4 {
+    background-color:#FFC100;
+}
+#box-5 {
+    background-color:#FFEC19;
+}
+
+.legend-body > div > p {
+    margin-left: 10px;
+}
+
+#globeViz {
+    z-index: -1;
 }
