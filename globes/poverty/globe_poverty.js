@@ -11,7 +11,7 @@ const world = Globe();
 // Basically, you use the first fetch because that has polygon drawing data and then the second fetch is
 // the data you wanna impleement.
 // Fetch local json country stuff for polygons
-fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+fetch('../../data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
 
     // Get poverty data

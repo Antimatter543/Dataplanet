@@ -3,10 +3,10 @@ const myGlobe = Globe()(document.getElementById('globeViz'))
 .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
 .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png');
 // Country air pollution 
-fetch('/data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
+fetch('../../data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries =>
 {
     // air exposure data set
-    fetch('/data/air/air_exposure.json').then(res => res.json()).then(data => 
+    fetch('../../data/air/air_exposure.json').then(res => res.json()).then(data => 
     {
         // air pollution exposure value
         function getAQValue(d) {
