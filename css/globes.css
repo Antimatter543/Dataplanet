@@ -210,6 +210,29 @@
     background-color: rgb(8, 170, 86);
 }
 
+#pov-content {
+    top: 50px;
+}
+
+#pov-legend div #box-1 {
+    background-color: #00FF00;
+}
+#pov-legend div #box-2 {
+    background-color: #39e75f;
+}
+#pov-legend div #box-3 {
+    background-color: #FFC100;
+}
+#pov-legend div #box-4 {
+    background-color: #FF9800;
+}
+#pov-legend div #box-5 {
+    background-color: #FF5607;
+}
+#pov-legend div #box-6 {
+    background-color: #F6412D;
+}
+
 .legend-body > div > p {
     margin-left: 10px;
 }
