@@ -9,7 +9,7 @@ Created during the UQCS Hackathon 2022, and won "Best Community" award from the 
 
 Teammates: @Antimatter543, @IsaacPikunic, @shirei220 and @SonjaMcNeilly. 
 
-You can try it out on [this website](https://antimatter543.github.io/Statplanet/)
+You can try it out on [this website](https://antimatter543.github.io/Dataplanet/)
 
 ## Instructions
 1. Clone the repository
