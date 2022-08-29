@@ -270,3 +270,21 @@
 li {
     font-size: 15px;
 }
+
+@media only screen and (max-width: 800px) {
+    #legend {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-group button {
+        width: 100% !important;
+    }
+}
