@@ -14,7 +14,7 @@ You can try it out on [this website](https://antimatter543.github.io/Dataplanet/
 ## Instructions
 1. Clone the repository
 ```
-git clone https://github.com/Antimatter543/Statplanet.git
+git clone https://github.com/Antimatter543/Dataplanet.git
 ```
 
 
