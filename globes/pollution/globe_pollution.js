@@ -60,7 +60,7 @@ fetch('../../data/globe/ne_110m_admin_0_countries.geojson').then(res => res.json
         // globe config
         myGlobe.controls().autoRotate = true;
         myGlobe.controls().autoRotateSpeed = 0.2;
-        myGlobe.controls().enableZoom = false;
+        // myGlobe.controls().enableZoom = false;
     });
 });
 

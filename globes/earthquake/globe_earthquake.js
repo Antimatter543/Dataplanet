@@ -35,5 +35,5 @@ fetch(URL).then(res => res.json()).then(equakes => {
     // globe config
     myGlobe.controls().autoRotate = true;
     myGlobe.controls().autoRotateSpeed = 0.2;
-    myGlobe.controls().enableZoom = false;
+    // myGlobe.controls().enableZoom = false;
 });
