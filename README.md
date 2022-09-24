@@ -8,10 +8,9 @@ A 3D data visualisation project that displays non-live datasets and live APIs on
 Created during the UQCS Hackathon 2022.
 Teammates: @Antimatter543, @IsaacPikunic, @shirei220 and @SonjaMcNeilly. 
 
-## Try it out!:
-[On this website](https://antimatter543.github.io/Dataplanet/)
+**Try it out [on this website](https://antimatter543.github.io/Dataplanet/)**.
 
-#### Awards won:
+### Awards won:
 "Best Community" award for that hackathon. Also won amazon's AWS ASDI Global Hackathon 2022 on Devpost out of 1600 participants. See UQCS showcase [here](https://uqcs.org/showcase/) and Devpost showcase [here](https://devpost.com/software/bigblueplanet).
 
 ## Instructions
