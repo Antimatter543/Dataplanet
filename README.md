@@ -10,8 +10,8 @@ Teammates: @Antimatter543, @IsaacPikunic, @shirei220 and @SonjaMcNeilly.
 
 **Try it out [on this website](https://antimatter543.github.io/Dataplanet/)**.
 
-[<img src=""http://img.youtube.com/vi/OuOhGKdwWmc/0.jpg" width="50%">](https://www.youtube.com/watch?v=OuOhGKdwWmc "Dataplanet showcase 2")
-![Youtube Video](https://www.youtube.com/watch?v=OuOhGKdwWmc)
+Also there's a [youtube video](https://www.youtube.com/watch?v=OuOhGKdwWmc).
+  
 ### Awards won:
 "Best Community" award for that hackathon. Also won amazon's AWS ASDI Global Hackathon 2022 on Devpost out of 1600 participants. See UQCS showcase [here](https://uqcs.org/showcase/) and Devpost showcase [here](https://devpost.com/software/bigblueplanet).
 
