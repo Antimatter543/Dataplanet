@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* intro */
  * {
      font-family: 'Roboto Mono', monospace;
 }
@@ -33,9 +35,11 @@
      margin-right: auto;
      transition: background-color 0.5s;
      margin-top: 20px;
+     border: 0;
 }
  .btn:hover {
      background-color: rgb(63, 93, 175);
+     cursor: pointer;
 }
  .earthimage {
      width: 100%;
@@ -135,3 +139,5 @@
         width: 90% !important;
     }
 }
+
+/* globe */
