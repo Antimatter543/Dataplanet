@@ -101,18 +101,12 @@
 }
  body {
      margin: 0;
-     background-color: #17182f;
+     background-color: black;
 }
  canvas {
      display: block;
 }
-/* ---- particles.js container ---- */
- #particles-js {
-     position: absolute;
-     width: 100%;
-     height: 1000px;
-     z-index: -1 
-}
+
  .titlediv {
      margin: auto;
      width: 50%;
@@ -139,5 +133,3 @@
         width: 90% !important;
     }
 }
-
-/* globe */

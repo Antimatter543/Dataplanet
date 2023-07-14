@@ -15,7 +15,7 @@ export default function Index() {
             <title>Data Planet</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Head>
-        {started ? <Globe/> : <Intro onClick={handleClick}/>}
+        <Intro onClick={handleClick}/>
         </>
     );
 }

@@ -1,8 +1,8 @@
+import Stars from '../components/Stars.js'
 
 export default function Intro({ onClick }) {
     return (
     <>
-        <div id="particles-js"></div>
         <div className="titlediv">
             <h1 className="title">Data Planet</h1>
             <p className="place">Visualise our planet through the problems it faces.</p>
@@ -14,6 +14,7 @@ export default function Intro({ onClick }) {
             </button>
 			<a href="https://github.com/Antimatter543/Dataplanet" className="sourcecode"><i>Source code here</i></a>
         </div>
+        <Stars className="stars"/>
     </>
     );
 }
