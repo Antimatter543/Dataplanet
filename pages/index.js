@@ -8,16 +8,14 @@ export default function Index() {
     function handleClick() {
         setStarted(true);
     }
+
     return (
         <>
         <Head>
             <title>Data Planet</title>
-            <meta charSet="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Head>
-        <body>
-            {started ? <Globe/> : <Intro onClick={handleClick}/>}
-        </body>
+        {started ? <Globe/> : <Intro onClick={handleClick}/>}
         </>
     );
 }
