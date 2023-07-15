@@ -1,1 +1,13 @@
-{"scripts":{"dev":"next dev"},"dependencies":{"next":"^13.4.9","react":"^18.2.0","react-dom":"^18.2.0","react-tsparticles":"^2.10.1","tsparticles":"^2.11.0"}}
+{
+    "scripts": {
+        "dev": "next dev"
+    },
+    "dependencies": {
+        "next": "^13.4.9",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-globe.gl": "^2.24.2",
+        "react-tsparticles": "^2.10.1",
+        "tsparticles": "^2.11.0"
+    }
+}
