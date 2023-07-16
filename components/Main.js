@@ -22,18 +22,35 @@ function getLabelColour(d) {
     else return "rgba(8, 170, 86, 0.75)";
 }
 
-function World() {
+function World({globeType}) {
     const globeRef = useRef();
     const [globeReady, setGlobeReady] = useState(false);
     const [data, setData] = useState([]);
-    const spacing = useRef(0.0000);
 
+    const globeData = {
+        earthquakes: function() {
+            fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson')
+                .then(res => res.json())
+                .then(res => setData(res.features));
+        },
+    }
+
+    const globeConfig = {
+        earthquakes: {
+            labelsData: data,
+            labelLat: (d => d.geometry.coordinates[1]),
+            labelLng: (d => d.geometry.coordinates[0]),
+            labelText: (() => ''),
+            labelAltitude: 0, //fix later
+            labelSize: (d => Math.sqrt(d.properties.mag)),
+            labelDotRadius: (d => Math.sqrt(d.properties.mag)),
+            labelColor: (d => getLabelColour(d)),
+            labelResolution: 3
+        },
+    }
+    
     useEffect(() => {
-        fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson')
-        .then(res => res.json())
-        .then(res => setData(res.features))
-        .then(console.log(data));
-        spacing.current = 0.0000;
+        globeData[globeType]();
     }, [globeReady]);
 
     useEffect(() => {
@@ -46,25 +63,15 @@ function World() {
         ref={globeRef}
         globeImageUrl='//unpkg.com/three-globe/example/img/earth-night.jpg'
         backgroundImageUrl='//unpkg.com/three-globe/example/img/night-sky.png'
-        labelsData={data}
-        labelLat={d => d.geometry.coordinates[1]}
-        labelLng={d => d.geometry.coordinates[0]}
-        labelText={() => ''}
-        labelAltitude={() => spacing.current += 0.0001}
-        labelSize={d => Math.sqrt(d.properties.mag)}
-        labelDotRadius={d => Math.sqrt(d.properties.mag)}
-        labelColor={d => getLabelColour(d)}
-        labelResolution={3}
         onGlobeReady={() => setGlobeReady(true)}
+        {...globeConfig[globeType]}
     />
 }
 
-
 export default function Main() {
-
     return (
         <>
-        <World />
+        <World globeType='earthquakes'/>
         </>
     );
 }
