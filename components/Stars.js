@@ -4,15 +4,14 @@ import { loadFull } from 'tsparticles';
 
 export default function Stars() {
     const particlesInit = useCallback(async engine => {
-        console.log(engine);
+        //console.log(engine);
         // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
         // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
         // starting from v2 you can add only the features you need reducing the bundle size
         await loadFull(engine);
     }, []);
-    const particlesLoaded = useCallback(async container => {
-        await console.log(container);
-    }, []);
+
+    //config source: https://codepen.io/bob6664569/pen/rOzmve/
     const options = {
       fullScreen: {
         enable: true,
@@ -131,7 +130,6 @@ export default function Stars() {
     return <Particles 
         id="tsparticles" 
         init={particlesInit} 
-        loaded={particlesLoaded}
         options={options}
     />
 }

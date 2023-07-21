@@ -12,7 +12,7 @@ export default function Intro({ onClick }) {
             <button className="btn" onClick={onClick}>
                 <img src="/images/pngearth.png" alt="gg" className="earthimage"/>
             </button>
-			<a href="https://github.com/Antimatter543/Dataplanet" className="sourcecode"><i>Source code here</i></a>
+            <a href="https://github.com/Antimatter543/Dataplanet" className="sourcecode"><i>Source code here</i></a>
         </div>
         <Stars className="stars"/>
     </>

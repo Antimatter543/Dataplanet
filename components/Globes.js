@@ -44,6 +44,7 @@ export function PollutionGlobe() {
         if (!globeRef.current) return;
         globeRef.current.controls().autoRotate = true;
         globeRef.current.controls().autoRotateSpeed = 0.2;
+        globeRef.current.controls().enableZoom = false;
     }, [globeReady])
 
     return <Globe
@@ -133,6 +134,7 @@ export function EarthquakeGlobe() {
         if (!globeRef.current) return;
         globeRef.current.controls().autoRotate = true;
         globeRef.current.controls().autoRotateSpeed = 0.2;
+        globeRef.current.controls().enableZoom = false;
     }, [globeReady])
 
     //reset spacing counter on component load
@@ -190,6 +192,7 @@ export function PovertyGlobe() {
         if (!globeRef.current) return;
         globeRef.current.controls().autoRotate = true;
         globeRef.current.controls().autoRotateSpeed = 0.2;
+        globeRef.current.controls().enableZoom = false;
     }, [globeReady])
 
     return <Globe
@@ -278,6 +281,7 @@ export function SpeciesGlobe() {
         if (!globeRef.current) return;
         globeRef.current.controls().autoRotate = true;
         globeRef.current.controls().autoRotateSpeed = 0.2;
+        globeRef.current.controls().enableZoom = false;
     }, [globeReady])
 
     return <Globe
