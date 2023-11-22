@@ -1,6 +1,8 @@
 import Stars from '../components/Stars.js'
 
 export default function Intro({ onClick }) {
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
     return (
     <>
         <div className="titlediv">
@@ -10,7 +12,7 @@ export default function Intro({ onClick }) {
                 <p className="begin"><i>click the world to begin</i></p>
             </div>
             <button className="btn" onClick={onClick}>
-                <img src="/images/pngearth.png" alt="gg" className="earthimage"/>
+                <img src={`${prefix}/images/pngearth.png`} alt="gg" className="earthimage"/>
             </button>
             <a href="https://github.com/Antimatter543/Dataplanet" className="sourcecode"><i>Source code here</i></a>
         </div>
