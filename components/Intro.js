@@ -1,7 +1,8 @@
 import Stars from '../components/Stars.js'
 
 export default function Intro({ onClick }) {
-    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    //change to '' for local testing
+    const prefix = '/Dataplanet';
 
     return (
     <>
