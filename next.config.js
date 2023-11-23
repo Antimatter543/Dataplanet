@@ -1,3 +1,4 @@
+//comment this out for local dev
 module.exports = {
     output: "export",
     basePath: "/Dataplanet",

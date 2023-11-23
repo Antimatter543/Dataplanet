@@ -1,9 +1,6 @@
 import Stars from '../components/Stars.js'
 
 export default function Intro({ onClick }) {
-    //change to '' for local testing
-    const prefix = '/Dataplanet';
-
     return (
     <>
         <div className="titlediv">
@@ -13,6 +10,7 @@ export default function Intro({ onClick }) {
                 <p className="begin"><i>click the world to begin</i></p>
             </div>
             <button className="btn" onClick={onClick}>
+                {/** remove /Dataplanet prefix for local dev */}
                 <img src="/Dataplanet/images/pngearth.png" alt="gg" className="earthimage"/>
             </button>
             <a href="https://github.com/Antimatter543/Dataplanet" className="sourcecode"><i>Source code here</i></a>
