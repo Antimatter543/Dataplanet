@@ -1,4 +1,22 @@
-particlesJS("particles-js", {
+import { useCallback } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+
+export default function Stars() {
+    const particlesInit = useCallback(async engine => {
+        //console.log(engine);
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    //config source: https://codepen.io/bob6664569/pen/rOzmve/
+    const options = {
+      fullScreen: {
+        enable: true,
+        zIndex: -1
+      },
       "particles": {
         "number": {
           "value": 355,
@@ -68,7 +86,7 @@ particlesJS("particles-js", {
         }
       },
       "interactivity": {
-        "detect_on": "canvas",
+        "detect_on": "window",
         "events": {
           "onhover": {
             "enable": true,
@@ -106,5 +124,12 @@ particlesJS("particles-js", {
           }
         }
       },
-      "retina_detect": true
-    });
+      "retina_detect": true,
+    };
+    
+    return <Particles 
+        id="tsparticles" 
+        init={particlesInit} 
+        options={options}
+    />
+}
