@@ -21,6 +21,12 @@ Also there's a [youtube video](https://www.youtube.com/watch?v=OuOhGKdwWmc).
 git clone https://github.com/Antimatter543/Dataplanet.git
 ```
 
+2. Install dependencies
+```
+npm i
+```
 
-2. Open index.html with a live server and enjoy!
-
+3. Run the develelopment server and enjoy!
+```
+npm run dev
+```
