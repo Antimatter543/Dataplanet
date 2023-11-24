@@ -11,7 +11,7 @@ export default function Intro({ onClick }) {
             <div className="click">
                 <p className="begin"><i>click the world to begin</i></p>
             </div>
-            <button className="btn" onClick={() => console.log(process.env.NODE_ENV)}>
+            <button className="btn" onClick={onClick}>
                 {/** remove /Dataplanet prefix for local dev */}
                 <img src={`${prefix}/images/pngearth.png`} alt="gg" className="earthimage"/>
             </button>
