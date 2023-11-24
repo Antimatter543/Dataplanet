@@ -1,8 +1,9 @@
-//comment this out for local dev
+const inDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
     output: "export",
-    basePath: "/Dataplanet",
-    assetPrefix: "/Dataplanet/",
+    basePath: inDev ? "" : "/Dataplanet",
+    assetPrefix: inDev ? "" : "/Dataplanet/",
     images: {
         unoptimized: true,
     },
