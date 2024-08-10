@@ -7,7 +7,7 @@ export default function Intro({ onClick }) {
     <>
         <div className="titlediv">
             <h1 className="title">Data Planet</h1>
-            <p className="place">Visualise our planet through the problems it faces.</p>
+            <p className="place">Visualise our planet through the problems it faces. Recognised by Google & Amazon.</p>
             <div className="click">
                 <p className="begin"><i>click the world to begin</i></p>
             </div>
